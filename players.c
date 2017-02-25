@@ -1,5 +1,5 @@
 //players stats file
-
+//pseudocode in c
 int main(int argc, char const *argv[])
 {
 	int player;
