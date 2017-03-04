@@ -1,8 +1,7 @@
 #include <stdio.h>
 #include <math.h>
+#include <stdlib.h>
 #include <time.h>
-
-#define RAND_MAX 37000
 
 /* these arrays are just used to give the parameters to 'insert',
    to create the 'people' array */
@@ -15,7 +14,7 @@ typedef struct{
   int capabilities;
 }  player; //had to include this here, otherwise error
 
-int srand (unsigned int seed); //random function prototype
+
 int main(void) { //main function
 
 /*  int n; //ask user for # of players they want and assign to array lenght
@@ -55,14 +54,17 @@ int main(void) { //main function
     //printf("\n\n");
   int lp=100; // variable lp to hold the initial life points for each player (100)
  
-printf("players's liife points have been set to 100%%\n");
+printf("players's life points have been set to 100%%\n");
+  /* CODE USED FOR TESTING PURPOSES
+
   // print the player array here
     //i=0;
   // for (i=0; i<n; i++){ //max 6 players and respective types
    //   printf("Player name: %s", &names[i]); // print the name of the player
      // printf("\t Player type: %s", &type[i]); // print their type
       //printf("\t This player has %d life points\n", lp); // print that they have 100 life points
-    
+
+*/    
 
  // **** NEED TO IMPLEMENT RANDOM ALLOCATION OF CAPABILITIES HERE!! **** //
 
@@ -70,8 +72,7 @@ printf("players's liife points have been set to 100%%\n");
 	printf("Proceeding to slot selection\n");
 
 
-
-
+int rand(void);
 /* SLOTS
 ************/
 	int num_slots;
@@ -80,13 +81,39 @@ printf("players's liife points have been set to 100%%\n");
 	printf("You selected %d slots on the game board. These are now being created.\n", num_slots);
 	int j;
 	time_t t;
-	srand((unsigned) time(&t)); // random seed for random allocation of slots
+	
+	int random_R= rand()%3; // random seed for random allocation of slots
+//	int restricted = random % 3;
+	char slottype;
+	/*if (restricted==0){
+		slottype=("LEVEL GROUND");
+	}
+
+	else if (slottype == 1){
+		slottype=("CITY");
+	}
+
+	else if (restricted == 2){
+		slottype= ("HILL");
+	}
+	*/
+	
 
 	int slots[num_slots];
 	for (j=0; j<=num_slots; j++){
-		slots[j] = srand(time(NULL) % 6);
+		slots[j] = random_R;
+			if (random_R==0){
+				printf("This slot is of type \"LEVEL GROUND\"\n");} //("LEVEL GROUND");}
+
+			else if (random_R == 1){
+				//slottype = ("CITY");
+				printf("This slot is of type \"CITY\"\n");}
+
+			else if (random_R == 2){
+				//slottype = ("HILL");
+				printf("This slot is of type \"HILL\"\n");}
+
 		j++;
 
 	}
-  return 0;
-}
+  return 0;}
