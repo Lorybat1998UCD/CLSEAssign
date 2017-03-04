@@ -1,4 +1,8 @@
 #include <stdio.h>
+#include <math.h>
+#include <time.h>
+
+#define RAND_MAX 37000
 
 /* these arrays are just used to give the parameters to 'insert',
    to create the 'people' array */
@@ -9,8 +13,8 @@
   //char name;
   //char type; 
 //}  player;//had to include this here, otherwise 
-
-int main(int argc, char **argv) {
+int srand (unsigned int seed);
+int main(int argc, char **argv) { 
 
 /*  int n; //ask user for # of players they want and assign to array lenght
   printf("Enter the amount of players you want in the game\n");
@@ -47,15 +51,33 @@ int main(int argc, char **argv) {
       
     } 
     //printf("\n\n");
-  int lp=100;
+  int lp=100; // variable lp to hold the initial life points for each player (100)
   // print the player array here
     i=0;
    for (i=0; i<n; i++){ //max 6 players and respective types
-      printf("Player name: %s", &names[i]);
-      printf("\t Player type: %s", &type[i]);
-      printf("\t This player has %d life points\n", lp);
+      printf("Player name: %s", &names[i]); // print the name of the player
+      printf("\t Player type: %s", &type[i]); // print their type
+      printf("\t This player has %d life points\n", lp); // print that they have 100 life points
     
     }
+ // **** NEED TO IMPLEMENT RANDOM ALLOCATION OF CAPABILITIES HERE!! **** //
 
+printf("Proceeding to slot selection\n");
+
+/* SLOTS
+************/
+/*int num_slots;
+	printf("Enter the amount of slots you want to have on the game board: ");
+	scanf("%d", &num_slots);
+	int j;
+	time_t t;
+	srand((unsigned) time(&t)); // random seed for random allocation of slots
+
+	int slots[num_slots];
+	for (j=0; j<=num_slots; j++){
+		slots[j] = srand(time(NULL) % 6);
+		j++;
+
+	}*/
   return 0;
 }
