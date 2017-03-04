@@ -15,9 +15,9 @@ int main(){
 	else if (n<min){
 		printf("Error: too few players. Choose 2 or more players.\n");
 	}
-//double check array initialisation
 //when the rules are abided, proceed to take in the parameters from the user
-	char array[n][2] = {0}; //inititalise array
+	char array[n][6] = {0}; //inititalise array
+	
 	if (n>=min && n<=max){
 		printf("Enter the players: \n");
 		char array[n][2] = {0}; //inititalise array
@@ -35,9 +35,13 @@ int main(){
    	}
 
    	struct Player {
-   		char  name[50];
-   		char  type[50];
-   	}
-   	book;  
+ 		char  type[50];
+		char  name[50];
+		//int Strenght=100;
+		//int Smartness=100;
+		//int Dexterity = 100;
+		//int Magic=100;
+ 	}
+   	 player;  
    	return 0;
 }
