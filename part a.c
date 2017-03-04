@@ -76,31 +76,17 @@ int rand(void);
 /* SLOTS
 ************/
 	int num_slots;
-	printf("Enter the amount of slots you want to have on the game board: ");
+	printf("Enter the amount of slots you want to have on the game board: ");//prompt for number of slots for game board.
 	scanf("%d", &num_slots);
-	printf("You selected %d slots on the game board. These are now being created.\n", num_slots);
-	int j;
+	printf("You selected %d slots on the game board. These are now being created.\n", num_slots); //print number as entered (TESTING PURPOSE)
+	
 	time_t t;
-	
+	// change to SRAND for final version
 	int random_R= rand()%3; // random seed for random allocation of slots
-//	int restricted = random % 3;
 	char slottype;
-	/*if (restricted==0){
-		slottype=("LEVEL GROUND");
-	}
-
-	else if (slottype == 1){
-		slottype=("CITY");
-	}
-
-	else if (restricted == 2){
-		slottype= ("HILL");
-	}
-	*/
-	
-
 	int slots[num_slots];
-	for (j=0; j<=num_slots; j++){
+	int j; //for loop counter
+	for (j=0; j<=num_slots; j++){ //for loop to assign the slot types to the various slots (number selected by user)
 		slots[j] = random_R;
 			if (random_R==0){
 				printf("This slot is of type \"LEVEL GROUND\"\n");} //("LEVEL GROUND");}
