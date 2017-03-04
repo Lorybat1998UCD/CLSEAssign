@@ -9,12 +9,14 @@
 
 
 /* declare your struct for a person here */
-//struct{
-  //char name;
-  //char type; 
-//}  player;//had to include this here, otherwise 
-int srand (unsigned int seed);
-int main(int argc, char **argv) { 
+typedef struct{
+  char name;
+  char type; 
+  int capabilities;
+}  player; //had to include this here, otherwise error
+
+int srand (unsigned int seed); //random function prototype
+int main(void) { //main function
 
 /*  int n; //ask user for # of players they want and assign to array lenght
   printf("Enter the amount of players you want in the game\n");
@@ -52,23 +54,30 @@ int main(int argc, char **argv) {
     } 
     //printf("\n\n");
   int lp=100; // variable lp to hold the initial life points for each player (100)
+ 
+printf("players's liife points have been set to 100%%\n");
   // print the player array here
-    i=0;
-   for (i=0; i<n; i++){ //max 6 players and respective types
-      printf("Player name: %s", &names[i]); // print the name of the player
-      printf("\t Player type: %s", &type[i]); // print their type
-      printf("\t This player has %d life points\n", lp); // print that they have 100 life points
+    //i=0;
+  // for (i=0; i<n; i++){ //max 6 players and respective types
+   //   printf("Player name: %s", &names[i]); // print the name of the player
+     // printf("\t Player type: %s", &type[i]); // print their type
+      //printf("\t This player has %d life points\n", lp); // print that they have 100 life points
     
-    }
+
  // **** NEED TO IMPLEMENT RANDOM ALLOCATION OF CAPABILITIES HERE!! **** //
 
-printf("Proceeding to slot selection\n");
+
+	printf("Proceeding to slot selection\n");
+
+
+
 
 /* SLOTS
 ************/
-/*int num_slots;
+	int num_slots;
 	printf("Enter the amount of slots you want to have on the game board: ");
 	scanf("%d", &num_slots);
+	printf("You selected %d slots on the game board. These are now being created.\n", num_slots);
 	int j;
 	time_t t;
 	srand((unsigned) time(&t)); // random seed for random allocation of slots
@@ -78,6 +87,6 @@ printf("Proceeding to slot selection\n");
 		slots[j] = srand(time(NULL) % 6);
 		j++;
 
-	}*/
+	}
   return 0;
 }
