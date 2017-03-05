@@ -104,5 +104,9 @@ printf("players's life points have been set to 100%%\n");
 		j++;
 
 	}
+
+	// need to do the random allocation of players to slots
+
+	
   return 0;}
 }
