@@ -22,8 +22,8 @@ int main(void) { //main function
   scanf("%d", &n);
 */
 //declation of the arrays
-  char names[6]= {}; //max number of players is 6
-  char type[6]= {}; // max number of players is 6
+  char names[30]= {}; //max number of players is 6
+  char type[30]= {}; // max number of players is 6
 
   int n;
   printf("Enter the # of players\n");
@@ -65,19 +65,28 @@ printf("players's life points have been set to 100%%\n");
       //printf("\t This player has %d life points\n", lp); // print that they have 100 life points
 
 */    
-
- // **** NEED TO IMPLEMENT RANDOM ALLOCATION OF CAPABILITIES HERE!! **** //
-
+for (i=0; i<n; i++)
+{
+	if (type[i] == ("HUMAN" || "human")){
+		printf("Human capabilities are > 0\n" );
+		printf("The total sum of the player capabilities <300\n");
+	}	
+}
 
 	printf("Proceeding to slot selection\n");
 
-
 int rand(void);
 /* SLOTS
-************/
+   ******/
+
 	int num_slots;
 	printf("Enter the amount of slots you want to have on the game board: ");//prompt for number of slots for game board.
 	scanf("%d", &num_slots);
+
+	while (num_slots < n || num_slots >20 || num_slots < 2){
+		printf("Error, the numebr of slots cannot be less than that of the players, or greater than 20 or less than 2.\n" );
+		printf("Please try again with the above in mind\n");
+	}
 	printf("You selected %d slots on the game board. These are now being created.\n", num_slots); //print number as entered (TESTING PURPOSE)
 	
 	time_t t;
@@ -89,14 +98,15 @@ int rand(void);
 	for (j=0; j<=num_slots; j++){ //for loop to assign the slot types to the various slots (number selected by user)
 		slots[j] = random_R;
 			if (random_R==0){
+				slottype[1]=("LEVEL GROUND");
 				printf("This slot is of type \"LEVEL GROUND\"\n");} //("LEVEL GROUND");}
 
 			else if (random_R == 1){
-				//slottype = ("CITY");
+				slottype[j] = ("CITY");
 				printf("This slot is of type \"CITY\"\n");}
 
 			else if (random_R == 2){
-				//slottype = ("HILL");
+				slottype[j] = ("HILL");
 				printf("This slot is of type \"HILL\"\n");}
 
 		j++;
