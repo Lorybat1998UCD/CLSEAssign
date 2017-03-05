@@ -79,34 +79,34 @@ printf("players's life points have been set to 100%%\n");
 		scanf("%d", &num_slots);
 	}
 
-	num_slots = num_slots*2; //double num_slots because it wouldn't print out the correct amt of slots in the for loop
+	
 	printf("You selected %d slots on the game board. These are now being created.\n", num_slots); //print number as entered (TESTING PURPOSE)
 	
-	time_t t;
 	// change to SRAND for final version
-	int random_R= rand()%3; // random seed for random allocation of slots
+	srand ( time(NULL));
+	num_slots = num_slots*2; //double num_slots because it wouldn't print out the correct amt of slots in the for loop
+	
 	char slottype;
 	int slots[num_slots];
-	int j; //for loop counter
+	int j, k=0; //for loop counter
 	for (j=0; j<num_slots; j++){ //for loop to assign the slot types to the various slots (number selected by user)
+		int random_R= rand()%3; // random seed for random allocation of slots
 		slots[j] = random_R;
 			if (random_R==0){
-				printf("This slot is of type \"LEVEL GROUND\"\n");} //("LEVEL GROUND");}
-
-			else if (random_R == 1){
+				printf("Slot %d is of type \"LEVEL GROUND\"\n", (k+1));} //("LEVEL GROUND");}
+			if (random_R == 1){
 				//slottype = ("CITY");
-				printf("This slot is of type \"CITY\"\n");}
-
-			else if (random_R == 2){
+				printf("Slot %d is of type \"CITY\"\n", (k+1));}
+			if (random_R == 2){
 				//slottype = ("HILL");
-				printf("This slot is of type \"HILL\"\n");}
-
-		j++;
+				printf("Slot %d is of type \"HILL\"\n", (k+1));}
+			j++;
+			k++;
 
 	}
 
 	// need to do the random allocation of players to slots
 
-	
+
   return 0;}
 }
